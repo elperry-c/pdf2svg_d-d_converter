@@ -61,16 +61,17 @@ goto :EOF
     set page=1
     :PDF2SVG_LOOP
         set wsl_outpath=%wsl_outdirpath%/%page%.svg
-        wsl pdf2svg %wsl_filepath% %wsl_outpath% %page%
+        wsl pdf2svg "%wsl_filepath%" "%wsl_outpath%" %page%
         if %errorlevel% equ 252 (
             echo [INFO] Finish!
             exit /b 0
         )
         if %errorlevel% neq 0 (
-            echo [ERROR] errrorlevel: %errrorlevel%
+            echo [ERROR] errrorlevel: %errorlevel%
             exit /b 1
         )
         echo [INFO] svg_out %page%: %wsl_outpath%
         set /a page=page+1
         goto :PDF2SVG_LOOP
     endlocal
+goto :EOF
