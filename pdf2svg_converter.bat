@@ -67,7 +67,7 @@ goto :EOF
             exit /b 0
         )
         if %errorlevel% neq 0 (
-            echo [ERROR] errrorlevel: %errorlevel%
+            echo [ERROR] errorlevel: %errorlevel%
             exit /b 1
         )
         echo [INFO] svg_out %page%: %wsl_outpath%
